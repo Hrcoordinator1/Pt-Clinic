@@ -55,7 +55,6 @@ a {
 
 .hero > *,
 .split-section > *,
-.portal-wrap > *,
 .contact-layout > *,
 .cards > *,
 .testimonial-grid > *,
@@ -162,7 +161,6 @@ a {
 .hero-copy h1,
 .section-heading h2,
 .split-copy h2,
-.portal-copy h2,
 .contact-copy h2 {
   margin: 0;
   font-family: "Space Grotesk", sans-serif;
@@ -173,7 +171,6 @@ a {
 
 .section-heading h2,
 .split-copy h2,
-.portal-copy h2,
 .contact-copy h2 {
   font-size: clamp(1.8rem, 3.2vw, 2.8rem);
 }
@@ -212,6 +209,31 @@ a {
   margin-top: 2rem;
 }
 
+.hero-notices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.notice-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.7rem 1rem;
+  border-radius: 999px;
+  background: var(--primary-soft);
+  color: var(--primary-deep);
+  font-weight: 800;
+  box-shadow: 0 10px 26px rgba(17, 42, 67, 0.08);
+}
+
+.notice-pill-accent {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
 .button {
   display: inline-flex;
   align-items: center;
@@ -234,12 +256,6 @@ a {
   background: rgba(255, 255, 255, 0.9);
 }
 
-.button-ghost {
-  border: 1px solid rgba(255, 255, 255, 0.28);
-  color: white;
-  background: rgba(255, 255, 255, 0.08);
-}
-
 .hero-stats {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -255,7 +271,8 @@ a {
 .split-panel,
 .contact-panel,
 .photo-card,
-.floating-note {
+.floating-note,
+.mini-cta-card {
   border: 1px solid rgba(255, 255, 255, 0.8);
   background: var(--surface);
   box-shadow: var(--shadow);
@@ -288,6 +305,7 @@ a {
 }
 
 .photo-card {
+  position: relative;
   overflow: hidden;
   border-radius: var(--radius-xl);
 }
@@ -307,6 +325,29 @@ a {
 .accent-photo {
   height: 250px;
   align-self: end;
+}
+
+.recovery-label {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 2;
+  padding: 0.55rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 10px 24px rgba(17, 42, 67, 0.16);
+}
+
+.recovery-before {
+  color: var(--primary-deep);
+}
+
+.recovery-after {
+  color: var(--accent);
 }
 
 .floating-note {
@@ -331,6 +372,37 @@ a {
 .floating-note strong {
   font-family: "Space Grotesk", sans-serif;
   line-height: 1.3;
+}
+
+.mini-cta-card {
+  position: absolute;
+  right: 1.2rem;
+  bottom: 1.2rem;
+  max-width: 220px;
+  padding: 1rem 1.1rem;
+  border-radius: 24px;
+  background: rgba(20, 96, 137, 0.92);
+  color: white;
+}
+
+.mini-cta-card p {
+  margin: 0 0 0.35rem;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.mini-cta-card strong {
+  display: block;
+  margin-bottom: 0.6rem;
+  font-family: "Space Grotesk", sans-serif;
+  line-height: 1.35;
+}
+
+.mini-cta-card a {
+  font-weight: 800;
+  color: white;
 }
 
 .trust-bar {
@@ -370,6 +442,10 @@ a {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+.selfpay-cards {
+  align-items: stretch;
+}
+
 .testimonial-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
@@ -382,6 +458,10 @@ a {
 
 .service-card {
   padding: 0 0 1.4rem;
+}
+
+.selfpay-cards .service-card {
+  padding-top: 1.5rem;
 }
 
 .service-image {
@@ -407,6 +487,15 @@ a {
 .split-panel h3 {
   margin: 0 0 0.5rem;
   font-family: "Space Grotesk", sans-serif;
+}
+
+.selfpay-highlight {
+  display: flex;
+  flex-direction: column;
+}
+
+.selfpay-button {
+  margin: 1rem 1.35rem 0;
 }
 
 .split-section {
@@ -463,58 +552,6 @@ a {
   color: var(--primary-deep);
   font-weight: 800;
   text-align: center;
-}
-
-.portal-section {
-  position: relative;
-}
-
-.portal-wrap {
-  display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: 1.5rem;
-  padding: 2rem;
-  border-radius: 36px;
-  background:
-    linear-gradient(135deg, rgba(20, 96, 137, 0.98), rgba(29, 120, 168, 0.94)),
-    linear-gradient(135deg, rgba(255, 26, 40, 0.18), transparent);
-  color: white;
-  box-shadow: var(--shadow);
-}
-
-.portal-section .eyebrow {
-  color: rgba(255, 255, 255, 0.76);
-}
-
-.portal-copy p,
-.portal-card li {
-  color: rgba(255, 255, 255, 0.88);
-  line-height: 1.75;
-}
-
-.portal-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 2rem;
-}
-
-.portal-card {
-  padding: 1.5rem;
-  border-radius: 28px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(12px);
-}
-
-.portal-card h3 {
-  margin: 0 0 1rem;
-  font-family: "Space Grotesk", sans-serif;
-}
-
-.portal-card ul {
-  margin: 0;
-  padding-left: 1.2rem;
 }
 
 .testimonial {
@@ -650,6 +687,23 @@ a {
   justify-self: start;
 }
 
+.footer {
+  padding: 2rem 0 1rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 700ms ease, transform 700ms ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 @media (max-width: 1280px) {
   .site-shell {
     width: min(calc(100% - 1.5rem), var(--max-width));
@@ -668,23 +722,6 @@ a {
   .hero {
     gap: 1.5rem;
   }
-}
-
-.footer {
-  padding: 2rem 0 1rem;
-  color: var(--muted);
-  text-align: center;
-}
-
-.reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 700ms ease, transform 700ms ease;
-}
-
-.reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 @media (max-width: 1100px) {
@@ -721,14 +758,12 @@ a {
   }
 
   .split-section,
-  .portal-wrap,
   .contact-layout {
     grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 980px) {
-  .contact-section,
   .testimonial-grid {
     grid-template-columns: 1fr;
   }
@@ -816,18 +851,18 @@ a {
     height: 360px;
   }
 
-  .portal-actions,
   .hero-actions {
     flex-direction: column;
   }
 
   .hero-actions .button,
-  .portal-actions .button,
-  .message-form .button {
+  .message-form .button,
+  .selfpay-button {
     width: 100%;
   }
 
-  .floating-note {
+  .floating-note,
+  .mini-cta-card {
     position: static;
     max-width: none;
     margin-top: 1rem;
@@ -877,7 +912,6 @@ a {
   .hero-copy h1,
   .section-heading h2,
   .split-copy h2,
-  .portal-copy h2,
   .contact-copy h2 {
     font-size: clamp(1.75rem, 9vw, 2.2rem);
     line-height: 1.08;
@@ -894,12 +928,10 @@ a {
   .hero-stats li,
   .testimonial,
   .contact-panel,
-  .message-form,
-  .portal-card {
+  .message-form {
     padding: 1.15rem;
   }
 
-  .portal-wrap,
   .contact-section {
     padding: 1.2rem;
     border-radius: 28px;
@@ -910,6 +942,11 @@ a {
   .service-card p {
     padding-left: 1rem;
     padding-right: 1rem;
+  }
+
+  .selfpay-button {
+    margin-left: 1rem;
+    margin-right: 1rem;
   }
 
   .button {
